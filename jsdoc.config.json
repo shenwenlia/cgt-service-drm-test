@@ -1,0 +1,28 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": [
+            "./srv"
+        ],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_",
+        "exclude": [
+            "./srv/index.js"
+        ]
+    },
+    "plugins": [],
+    "opts": {
+        "encoding": "utf8",
+        "destination": "./doc/doc-page/",
+        "recurse": true
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "default": {
+            "outputSourceFiles": true
+        }
+    }
+}

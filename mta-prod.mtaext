@@ -1,0 +1,14 @@
+_schema-version: "3.2" 
+ID: multi-prod
+extends: cgt-drm
+
+resources:
+  
+  - name: cgt-cloud-logging 
+    active: true      
+
+  - name: cgt-application-logging
+    active: false   
+
+          
+

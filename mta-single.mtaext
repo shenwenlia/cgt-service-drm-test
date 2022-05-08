@@ -1,0 +1,21 @@
+_schema-version: "3.2" 
+ID: multi-dev
+extends: cgt-drm
+
+modules:
+ - name: cgt-drm-srv
+   properties:
+      CDS_CONFIG: 
+        requires:
+          db:
+            '[production]':
+              multiTenant: false   
+
+resources:
+ - name: cgt-db
+   active: true
+
+ - name: cgt-uaa
+   active: true
+ - name: cgt-sm
+   active: false  

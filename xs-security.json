@@ -1,0 +1,9 @@
+{
+    "xsappname": "cgt-drm-service-xsapp",
+    "tenant-mode": "shared",
+    "oauth2-configuration":{
+        "grant-types":[
+            "client_x509", "client_credentials", "refresh_token"
+        ]
+    }
+}

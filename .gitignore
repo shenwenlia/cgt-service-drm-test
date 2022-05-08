@@ -1,0 +1,36 @@
+# CAP cgt
+_out
+*.db
+connection.properties
+default-*.json
+.cdsrc-private.json
+gen/
+node_modules/
+target/
+package-lock.json
+reports/
+# Web IDE, App Studio
+.che/
+.gen
+
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+
+# Other
+.DS_Store
+*.orig
+*.log
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+.idea
+coverage/
+yarn.lock
+
+# tools
+doc
+Makefile*

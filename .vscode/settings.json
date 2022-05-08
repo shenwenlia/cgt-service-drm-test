@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+  },
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "jest.autoRun": "off",
+  "eslint.validate": [
+    "cds",
+    "csn",
+    "csv",
+    "csv (semicolon)",
+    "tsv",
+    "tab"
+  ],
+  "cSpell.words": [
+    "cgt"
+  ]
+}

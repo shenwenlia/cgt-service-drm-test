@@ -1,0 +1,82 @@
+{
+  "root": true,
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@sap/cds/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "rules": {
+    "@sap/cds/assoc2many-ambiguous-key": "error",
+    "@sap/cds/no-db-keywords": "error",
+    "@sap/cds/no-join-on-draft-enabled-entities": "error",
+    "@sap/cds/require-2many-oncond": "error",
+    "@sap/cds/sql-cast-suggestion": "error",
+    "@sap/cds/start-entities-uppercase": "error",
+    "@sap/cds/valid-csv-header": "error",
+    "@sap/cds/min-node-version": "error",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "semi": [
+      1
+    ],
+    "semi-spacing": ["error", {"before": false, "after": true}],
+    "no-extra-semi": [
+      0
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "no-unused-vars": "error",
+    "space-before-blocks": "error",
+    "key-spacing": "error",
+    "camelcase": [
+      "error",
+      {
+        "ignoreImports": true
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "space-infix-ops": "off",
+    "comma-spacing": "error",
+    "arrow-spacing": "error",
+    "lines-between-class-members": "error",
+    "quotes": [
+      "error",
+      "double",
+      {
+        "allowTemplateLiterals": true,
+        "avoidEscape": true
+      }
+    ],
+    "indent": ["error", 4]
+  },
+  "globals": {
+    "sap": true,
+    "jest/globals": true
+  },
+  "plugins": ["jest"]
+  
+}

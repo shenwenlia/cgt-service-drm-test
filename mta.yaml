@@ -1,0 +1,71 @@
+_schema-version: '3.2'
+ID: cgt-drm
+version: 1.0.0
+description: "CGT DPP Service"
+parameters:
+  enable-parallel-deployments: true
+  drm-service-name: cgt-drm-srv-name
+  xsappname: cgt-drm-srv-${space}
+  displayName: CGT Service 
+   
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install
+      - npx -p @sap/cds-dk cds build --production
+
+modules:
+ - name: cgt-drm-srv
+   type: nodejs
+   path: gen/srv
+   parameters:
+     buildpack: nodejs_buildpack
+   properties:
+      SAP_JWT_TRUST_ACL:
+        - clientid : "*"
+          identityzone: "*"
+      CDS_CONFIG: 
+        requires:
+          db:
+            '[production]':
+              multiTenant: true   
+   build-parameters:
+     builder: npm-ci
+   requires:
+    - name: cgt-db
+    - name: cgt-uaa
+    - name: cgt-sm
+    - name: cgt-audit-log
+    - name: cgt-application-logging
+    - name: cgt-drm
+   provides:
+    - name: srv-api      
+      properties:
+        srv-url: ${default-url}
+
+resources:
+ - name: cgt-db
+   type: org.cloudfoundry.existing-service
+   active: false
+
+ - name: cgt-uaa
+   type: org.cloudfoundry.existing-service
+   active: true
+
+ - name: cgt-sm
+   type: org.cloudfoundry.existing-service
+   active: true
+
+ - name: cgt-audit-log
+   type: org.cloudfoundry.existing-service
+   active: true  
+
+ - name: cgt-application-logging
+   type: org.cloudfoundry.existing-service
+   active: true   
+
+ - name: cgt-drm
+   type: org.cloudfoundry.existing-service
+   active: true
+   

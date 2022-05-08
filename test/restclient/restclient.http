@@ -1,0 +1,131 @@
+### Endpoint to return the list of legal entities associated with the given data subject role.
+GET http://localhost:4004/dpp/drm/legalEntities/:dataSubjectRole HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+### Endpoint to Get data subject detail information
+POST http://localhost:4004/dpp/drm/dataSubjectInformation HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+{
+  "applicationGroupName": "CGT_TMP",
+  "dataSubjectRole": "Contact",
+  "dataSubjectIds": [
+    "ElonMusk",
+    "PonyMa"
+  ]
+}
+
+###
+POST http://localhost:4004/dpp/drm/endofResidenceDS HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+{
+  "dataSubjectRole": "TSApp13_DSR1",
+  "startTime": "TSApp13_DSR1_LG1_ST1",
+  "legalGround": "TSApp13_DSR1_LG1",
+  "legalEntitiesResidenceRules": [
+    {
+      "legalEntity": "LE",
+      "residenceRules": [
+        {
+          "residenceDate": "2019-11-25T00:00:00",
+          "conditionSet": []
+        }
+      ]
+    }
+  ]
+}
+
+###
+POST http://localhost:4004/dpp/drm/retentionStartDate HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+{
+  "dataSubjectRole": "Contact",
+  "legalEntity": "LE",
+  "startTime": "modifiedAt",
+  "dataSubjectID": "CP1",
+  "legalGround": "Contact",
+  "rulesConditionSet": [
+    {
+      "retentionID": "1603026602019",
+      "conditionSet": []
+    },
+    {
+      "retentionID": "1603026602179",
+      "conditionSet": [
+        {
+          "conditionFieldName": "TSApp13_DSR1_LG1_CF1",
+          "conditionFieldValue": "TSApp13_DSR1_LG1_CFV1"
+        }
+      ]
+    }
+  ]
+}
+
+###
+POST http://localhost:4004/dpp/drm/endofResidenceDS HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+{
+  "dataSubjectRole": "Contact",
+  "startTime": "modifiedAt",
+  "legalGround": "Contact",
+  "legalEntitiesResidenceRules": [
+    {
+      "legalEntity": "LE",
+      "residenceRules": [
+        {
+          "residenceDate": "2022-11-25T00:00:00",
+          "conditionSet": []
+        }
+      ]
+    }
+  ]
+}
+
+###
+POST http://localhost:4004/dpp/drm/dataSubjectEndofBusiness HTTP/1.1
+content-type: application/json
+Authorization: Basic admin 1234
+
+{
+  "legalGround": "ContactInMasterdataManagement",
+  "dataSubjectRole": "Contact",
+  "dataSubjectID": "1002"
+}
+
+###
+POST http://localhost:4004/dpp/drm/dataSubjectLegalEntities HTTP/1.1
+Content-Type: application/json
+
+{
+  "legalGround": "ContactInMasterdataManagement",
+  "dataSubjectRole": "Contact",
+  "dataSubjectID": "1001"
+}
+
+###
+POST http://localhost:4004/dpp/drm/deleteDataSubject HTTP/1.1
+Content-Type: application/json
+Authorization: Basic admin 1234
+{
+  "applicationGroupName": "CGT-TMP",
+  "dataSubjectRole": "Contact",
+  "dataSubjectID": "Test_DS_13",
+  "maxDeletionDate": "2022-05-04T23:59:59"
+}
+
+###
+POST http://localhost:4004/dpp/drm/destroyDataSubjects HTTP/1.1
+Content-Type: application/json
+Authorization: Basic admin 1234
+{
+  "applicationGroupName": "CGT-TMP",
+  "dataSubjectRole": "Contact"
+}
